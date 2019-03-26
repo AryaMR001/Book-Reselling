@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SignUPINPage.master.cs" Inherits="SignUPINPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/w3css/3/w3.css">
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        #name{
+            font-family:Monotype Corsiva;
+            font-size:48px;
+            color:mediumpurple;
+        }
+     .topnav {
+  overflow: hidden;
+  background-color: #333;
+  margin: 29px 0px 0px 0px;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  
+            width: 62px;
+        }
+
+.topnav a:hover {
+  background-color:mediumpurple;
+  color: black;
+}
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="row">
+            <div class="column" style="background-color:lightgrey;margin: 0 -8px 0px -7px;height: 24px;    padding: 8px 6px 5px 313px;">
+              <a  href="SignUp.aspx" style="text-decoration:none">Sign Up<i class="fa fa-user-plus"></i></a>
+               <a href="#" style="text-decoration:none;margin: 0 0 0 27px;">Sign In<i class="fa fa-sign-in" "></i></a>
+                <a href="#" style="text-decoration:none;margin: 0 0 0 27px;">Customer Care<i class="fa fa-phone"></i>+91 9388510504</a>
+                 <a href="#" style="text-decoration:none;margin: 0 0 0 27px;">Shopping Cart<i class="fa fa-shopping-cart"></i></a>
+                    <a href="#" style="text-decoration:none;margin: 0 0 0 27px;">Wish List<i class="fa fa-heart"></i></a>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="Images/4f8f4849d7ca6c6d81964c3c61f9d085.gif" style="width: 194px; height: 132px;margin: 0 0 -39px 0px;" />
+                <a id="name">ONLINE BOOK SELLING</a></div></div>
+        <div class="row">
+            <div class="column">
+        <div class="topnav">
+        <a href="HomePage.aspx"><i class="fa fa-home" style="color:white;font-size: 31px;"></i></a>
+            <a href="#" style="float:right;font-size: 34px;" title="Sign Out"><i class="fa fa-sign-out"></i></a>
+        </div></div></div>
+        
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
