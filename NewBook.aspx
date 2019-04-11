@@ -1,25 +1,41 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BookStore.master" AutoEventWireup="true" CodeFile="NewBook.aspx.cs" Inherits="NewBook" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BookStore.master" AutoEventWireup="true" CodeFile="NewBook.aspx.cs" Inherits="NewBook" EnableEventValidation="false" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         .auto-style1 {
             width: 100%;
         }
-        .auto-style2 {
-            height: 20px;
-        }
         table{border:2px solid black;}
+        .txtBoxBg {
+            background-image: url("100.jpg");
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
    
-                <asp:DataList ID="DataList1" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="5" GridLines="Horizontal" RepeatDirection="Horizontal" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" RepeatColumns = "6">
+                <table style="width:100%;background-color:#d9b3ff;" >
+                                    <tr>
+                                        <td>OUR LASTEST BOOKS</td>
+                                        <td>
+                                            <asp:TextBox ID="txtcount" runat="server" CssClass="txtBoxBg" AutoPostBack="True" style="background-image:url(100.JPG)"></asp:TextBox>
+                                            </td>
+                                    </tr></table>
+   
+                <asp:DataList ID="DataList1" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="5" GridLines="Horizontal" RepeatDirection="Horizontal" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" RepeatColumns = "6" Height="394px" OnItemCommand="AddCart">
                     <ItemTemplate>
                         <table>
-                                    <tr>
+                                   
+                                     <tr>
                                         <td style="text-align:center"><%#Eval("Bok_Name") %></td>
 
-                                    </tr><br />
+                                    </tr>
+                             <tr>
+                                        <td style="text-align:center;visibility:hidden"><%#Eval("Book_ID") %></td>
+
+                                    </tr>
+
                         <tr>
                             <td><asp:Image ID="Image1" runat="server"   ImageUrl='<%#Eval("Book_Image") %>' Height="200px" Width="200px"/>
                                 </td>
@@ -33,11 +49,11 @@
 
                         </tr>
                         <tr><td>
-                            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/CTA-Add-to-Cart-Button-JPG-Graphic-Cave-1080x628.jpg" Height="100px" Width="200px" ImageAlign="Middle" />
-
+                            <asp:ImageButton ID="ImageButton1" runat="server"  ImageUrl="~/Images/CTA-Add-to-Cart-Button-JPG-Graphic-Cave-1080x628.jpg" Height="100px" Width="200px" ImageAlign="Middle"  CommandName="Add"  CommandArgument='<%#Eval("Book_ID") %>' />
                             </td></tr>
+                            
                                   </table></ItemTemplate>
                 </asp:DataList>
-            
-</asp:Content>
+
+    </asp:Content>
 
