@@ -12,7 +12,8 @@ using System.Data.SqlClient;
 public partial class NewBook : System.Web.UI.Page
 {
     Connect cn = new Connect();
-    int bid, count;
+    int bid, count,totcount;
+    double price, sum = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         cn.start();
@@ -20,9 +21,9 @@ public partial class NewBook : System.Web.UI.Page
         {
             DataList1.DataSource = cn.fill("select Bok_Name,Book_ID,Book_Image,Price from Book_Data");
             DataList1.DataBind();
+           
+
         }
-      
-      
         
     }
 
@@ -49,6 +50,20 @@ public partial class NewBook : System.Web.UI.Page
             }
             txtcount.Text = count + "" + "Book(s)";
             count = count + 1;
+            cn.dr.Close();
+            cn.dr = cn.read("select SUM(b.Price) from Book_Data b,Add_Cart a where b.Book_ID=a.Book_ID AND a.Reg_ID='" + Session["Reg_ID"].ToString() + "'");
+            if (cn.dr.Read())
+            {
+                txtprice.Text = cn.dr.GetValue(0).ToString();
+            }
+
+           
         }
+       
+    }
+
+    protected void txtprice_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
