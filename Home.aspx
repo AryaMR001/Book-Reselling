@@ -6,6 +6,8 @@
             width: 100%;
         }
         table{border:2px solid  black;}
+        #ContentPlaceHolder1_DataList1{margin: 0 0 0 39px;}
+         
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -13,10 +15,13 @@
                                     <tr>
                                         <td>OUR LASTEST BOOKS</td>
                                         <td>
-                                            <asp:TextBox ID="txtcount" runat="server" CssClass="txtBoxBg" AutoPostBack="True" style="background-image:url(100.JPG)"></asp:TextBox>
+                                            <asp:TextBox ID="txtcount" runat="server" CssClass="txtBoxBg" AutoPostBack="True" style="background-image:url(100.JPG)" placeholder="Your Shopping Cart Items" ReadOnly="true"></asp:TextBox>
+                                            </td>
+                                        <td>
+                                            <asp:TextBox ID="txtprice" runat="server" CssClass="auto-style5" OnTextChanged="txtprice_TextChanged"  placeholder="Total Price"></asp:TextBox>
                                             </td>
                                     </tr></table>
-    <asp:DataList ID="DataList1" runat="server" RepeatColumns = "6" RepeatDirection="Horizontal" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" OnItemCommand="AddCart">
+    <asp:DataList ID="DataList1" runat="server" RepeatColumns = "6" RepeatDirection="Horizontal" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" OnItemCommand="AddCart" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
         <ItemTemplate>
             <table>
                 <tr>
@@ -31,7 +36,9 @@
                        <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("Book_Image") %>' Height="200px" Width="200px"/>
                     </td>
                 </tr>
-                
+                <tr>
+                <td >Available Editions:<%#Eval("Quantity")%></td><br />
+                </tr>
                 <tr>
                     <td style="text-align:center"><asp:ImageButton ID="ImageButton1" runat="server" ImageAlign="Middle" ImageUrl="~/Images/93954_thumb.png" Height="20px" Width="20px" />
                          <%#Eval("Price") %>
