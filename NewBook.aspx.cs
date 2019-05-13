@@ -12,11 +12,23 @@ using System.Data.SqlClient;
 public partial class NewBook : System.Web.UI.Page
 {
     Connect cn = new Connect();
-    int bid, count,totcount;
-    double price, sum = 0;
+    int bid, count, qty, new_qty;
+    string datetime, address, state, dist, phn, email;
+   // double price;
     protected void Page_Load(object sender, EventArgs e)
     {
         cn.start();
+        cn.dr = cn.read("select Address,State,District,Phnnumber,Email_ID from Sign_UP where Reg_ID='" + Session["Reg_ID"].ToString() + "'");
+        if (cn.dr.Read())
+        {
+             address = cn.dr.GetValue(0).ToString();
+            state = cn.dr.GetValue(1).ToString();
+            dist = cn.dr.GetValue(2).ToString();
+            phn = cn.dr.GetValue(3).ToString();
+            email = cn.dr.GetValue(4).ToString();
+        }
+        cn.dr.Close(); 
+        datetime = DateTime.Now.ToLongDateString();
         if (!IsPostBack)
         {
             DataList1.DataSource = cn.fill("select Bok_Name,Book_ID,Book_Image,Price from Book_Data");
@@ -40,7 +52,25 @@ public partial class NewBook : System.Web.UI.Page
         {
             bid = Convert.ToInt32(e.CommandArgument.ToString());
             Session["BID"] = bid.ToString();
-            cn.dml("insert into Add_Cart(Book_ID,Reg_ID)values('" + Session["BID"].ToString() + "','" + Session["Reg_ID"].ToString() + "')");
+            cn.dr = cn.read("select Quantity from Book_Data where Book_ID='" + Session["BID"].ToString() + "' ");
+            if (cn.dr.Read())
+            {
+                qty = Convert.ToInt32(cn.dr.GetValue(0).ToString());
+            }
+            cn.dr.Close();
+            if (qty > 0)
+            {
+                cn.dml("insert into Add_Cart(Book_ID,Reg_ID)values('" + Session["BID"].ToString() + "','" + Session["Reg_ID"].ToString() + "')");
+                new_qty = qty - 1;
+                // cn.dml("insert into order_details(Date,Reg_ID,Book_ID,Ship_Address,District,State,PHN,email)values('" + datetime + "','" + Session["Reg_ID"].ToString() + "','" + Session["BID"].ToString() + "'+'"+address+"','"+dist+"','"+state+"','"+phn+"','"+email+"')");
+                cn.dml("insert into order_details (Date,Reg_ID,Book_ID,Ship_Address,District,State,PHN,email)values('" + datetime + "','" + Session["Reg_ID"].ToString() + "','" + Session["BID"].ToString() + "','" + address + "','" + dist + "','" + state + "','" + phn + "','" + email + "')");
+                cn.dml("update Book_Data set Quantity='" + new_qty + "' where Book_ID='" + Session["BID"].ToString() + "' ");
+            }
+            if (qty <= 0)
+            {
+                lblprint.Visible = true;
+                lblprint.Text = "This Book Is Out Of Stock";
+            }
             cn.dr = cn.read("select count(Book_ID) from Add_Cart where Reg_ID='" + Session["Reg_ID"].ToString() + "'");
             if(cn.dr.Read())
             {
@@ -48,6 +78,7 @@ public partial class NewBook : System.Web.UI.Page
                
                 
             }
+            cn.dr.Close();
             txtcount.Text = count + "" + "Book(s)";
             count = count + 1;
             cn.dr.Close();
