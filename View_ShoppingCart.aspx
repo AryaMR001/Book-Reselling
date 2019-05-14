@@ -26,18 +26,31 @@
             width: 175px;
             height: 51px;
         }
+        .auto-style7 {
+            width: 100%;
+        }
+        .auto-style8 {
+            height: 30px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <div class="navbar">
   <a href="#" class="auto-style6"><b>Remove Selected Books</b></a>
-  <a href="#" class="auto-style6"><b>Update Cart</b></a>
-  <a href="#" class="auto-style6" style="float:right"><b>Continue Shopping</b></a>
-   <a href="#" class="auto-style6" style="float:right"><b>Checkout</b></a>
+  <a href="#" class="auto-style6"><b>Update Cart<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+         </b></a>
+  &nbsp;<a href="Home.aspx" class="auto-style6" style="float:right"><b>Continue Shopping</b></a>
+   <a href="Delivery.aspx" class="auto-style6" style="float:right"><b>Checkout</b></a>
      </div>
     <div style="margin:36px 0 0 155px">
+       
+        <table class="auto-style7">
+            <tr>
+                <td class="auto-style8" colspan="2">
+       
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" ShowFooter="True" Width="991px">
     <Columns>
+        <asp:BoundField DataField="Book_ID" HeaderText="Book_ID" />
         <asp:BoundField DataField="Bok_Name" HeaderText="Book Name" />
         <asp:BoundField DataField="Author_Name" HeaderText="Author" />
         <asp:BoundField DataField="Edition" HeaderText="Edition" />
@@ -58,6 +71,26 @@
     <SortedAscendingHeaderStyle BackColor="Gray" />
     <SortedDescendingCellStyle BackColor="#CAC9C9" />
     <SortedDescendingHeaderStyle BackColor="#383838" /><RowStyle HorizontalAlign="Center" />
-</asp:GridView></div>
+</asp:GridView></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+            <asp:Label ID="Label2" runat="server" Text="Label" ></asp:Label></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+     </div>
 </asp:Content>
 

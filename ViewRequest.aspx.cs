@@ -14,14 +14,14 @@ public partial class ViewRequest : System.Web.UI.Page
     {
         cn.start();
         Label1.Visible = true;
-        cn.dr = cn.read("select count(Book_Name) from Book_Request where status IS NULL ");
+        cn.dr = cn.read("select count(Book_Name) from Book_Request where status IS NULL and Reg_ID !='" + Session["Reg_ID"] + "' ");
         if(cn.dr.Read())
         {
             count = Convert.ToInt32(cn.dr.GetValue(0).ToString());
         }
         cn.dr.Close();
         
-        GridView1.DataSource = cn.fill("select Book_Name,Author,Edition from Book_Request where status IS NULL");
+        GridView1.DataSource = cn.fill("select Book_Name,Author,Edition from Book_Request where status IS NULL and Reg_ID !='"+Session["Reg_ID"]+"'");
         GridView1.DataBind();
         if (GridView1 == null)
         {
@@ -36,5 +36,21 @@ public partial class ViewRequest : System.Web.UI.Page
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
         
+    }
+
+    protected void btnnotification_Click(object sender, EventArgs e)
+    {
+        cn.dml("update Book_Request set status='Read'");
+        
+    }
+
+    protected void btnnotification_Click1(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnread_Click(object sender, EventArgs e)
+    {
+        cn.dml("update Book_Request set status='Read'");
     }
 }

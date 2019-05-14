@@ -197,18 +197,18 @@
             </td>
             <td class="auto-style8">
                 
-                <asp:DropDownList ID="ddlstate" runat="server" Height="22px" Width="141px">
+                <asp:DropDownList ID="ddlstate" runat="server" Height="22px" Width="141px" AutoPostBack="True" OnSelectedIndexChanged="ddlstate_SelectedIndexChanged">
                     <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>Kerala</asp:ListItem>
                     <asp:ListItem>Tamil Nadu</asp:ListItem>
                     <asp:ListItem>Karnataka</asp:ListItem>
                     <asp:ListItem>Anthrapredesh</asp:ListItem>
                     <asp:ListItem>Maharashtra</asp:ListItem>
-                    <asp:ListItem>Gujarat</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td class="auto-style10">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlstate" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:Label ID="Label12" runat="server" ForeColor="Red" Visible="False"></asp:Label>
             </td>
             <td class="auto-style9"></td>
             <td class="auto-style22"></td>
@@ -222,22 +222,7 @@
             </td>
             <td class="auto-style5">
                 
-                <asp:DropDownList ID="ddldistrict" runat="server">
-                    <asp:ListItem>Select </asp:ListItem>
-                    <asp:ListItem>Thiruvananthapuram</asp:ListItem>
-                    <asp:ListItem>Kollam</asp:ListItem>
-                    <asp:ListItem>Pathanthitta</asp:ListItem>
-                    <asp:ListItem>Alappuzha</asp:ListItem>
-                    <asp:ListItem>Kottayam</asp:ListItem>
-                    <asp:ListItem>Ernakulam</asp:ListItem>
-                    <asp:ListItem>Thrissur</asp:ListItem>
-                    <asp:ListItem>Palakkad</asp:ListItem>
-                    <asp:ListItem>Malappuram</asp:ListItem>
-                    <asp:ListItem>Kozikkodu</asp:ListItem>
-                    <asp:ListItem>Vayanadu</asp:ListItem>
-                    <asp:ListItem>Kannur</asp:ListItem>
-                    <asp:ListItem>Kasargod</asp:ListItem>
-                    <asp:ListItem>Others</asp:ListItem>
+                <asp:DropDownList ID="ddldistrict" runat="server" AutoPostBack="True">
                 </asp:DropDownList>
             </td>
             <td class="auto-style11">
@@ -281,7 +266,7 @@
             <td class="auto-style2"></td>
             <td class="auto-style21"></td>
             <td class="auto-style2"></td>
-            <td class="auto-style2">&nbsp;</td>
+            <td class="auto-style2"></td>
         </tr>
         <tr>
             <td class="auto-style3">
@@ -332,7 +317,7 @@
         <tr>
             <td class="auto-style3">&nbsp;</td>
             <td class="auto-style5">
-                 <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" Font-Bold="True" OnClick="btnSubmit_Click"/>
+                 <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" Font-Bold="True" OnClick="btnSubmit_Click" style="height: 26px"/>
             </td>
             <td class="auto-style11">
                 <asp:Button ID="btnCancel" runat="server" Text="CANCEL" Font-Bold="True" OnClick="btnCancel_Click"/>
