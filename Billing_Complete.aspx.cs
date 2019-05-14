@@ -56,11 +56,12 @@ public partial class Billing_Complete : System.Web.UI.Page
 
             lblprint.Text = cn.dr.GetValue(4).ToString();
             balance = Convert.ToDouble(lblprint.Text);
-
+            
             if (balance >= tot)//check you have enough balance
             {
                 // count = 1;
                 new_balance = balance - tot;
+                Session["new_balance"] = new_balance;
                //decrement balance                      
               //  Response.Redirect("Bill-export.aspx");
 
@@ -91,7 +92,7 @@ public partial class Billing_Complete : System.Web.UI.Page
         }
         if (balance >= tot)
         {
-            admin = admin + tot;
+              admin = admin + tot;
               cn.dml("update Bank set Balance='" + admin+ "' where cvv=928");//check
               cn.dml("update Bank set Balance='" + new_balance + "' where Account_no='" + txtcardnum.Text + "'");
               cn.dml("update order_details set Status='Payment Completed' where Reg_ID='"+ Session["Reg_ID"].ToString() + "'");//set status in order_details

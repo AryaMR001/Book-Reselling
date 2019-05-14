@@ -24,18 +24,6 @@ public partial class Admin_vieworder : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-       /* ddlsellerid.Visible = true;
-        if (!IsPostBack)
-        {
-            ddlsellerid.Items.Clear();
-            ddlsellerid.Items.Add("ID");
-            cn.dr = cn.read("select DISTINCT o.Reg_ID  from order_details o, Book_Data b where b.Book_ID=o.Book_ID AND b.Reg_ID='" + Session["Reg_ID"].ToString() + "'");
-            while (cn.dr.Read())
-            {
-                ddlsellerid.Items.Add(cn.dr.GetValue(0).ToString());
-
-            }
-            cn.dr.Close();
-        }*/
+       
     }
 }

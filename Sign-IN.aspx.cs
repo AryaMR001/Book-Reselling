@@ -19,10 +19,7 @@ public partial class Sign_IN : System.Web.UI.Page
    
     protected void Button1_Click(object sender, EventArgs e)
     {
-        if (txtPass.Text=="admin" && txtUname.Text=="admin" )
-        {
-            Response.Redirect("~/Home.aspx");
-        }
+       
         cn.dr = cn.read("select * from Sign_UP where User_Name='" + txtUname.Text + "'  AND  Password='" + txtPass.Text + "'");
         if(cn.dr.Read())
         {   id= Convert.ToInt32(cn.dr.GetValue(0).ToString());

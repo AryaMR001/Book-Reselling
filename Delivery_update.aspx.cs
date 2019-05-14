@@ -37,4 +37,14 @@ public partial class Delivery_update : System.Web.UI.Page
         txtstate.Text = "";
         
     }
+
+    protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("Payment-method.aspx");
+    }
+
+    protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("Delivery.aspx");
+    }
 }

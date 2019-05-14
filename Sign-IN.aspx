@@ -19,6 +19,14 @@
             text-align: center;
         }
        
+        .auto-style6 {
+            width: 419px;
+            height: 34px;
+        }
+        .auto-style7 {
+            height: 34px;
+        }
+       
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -48,13 +56,13 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                <asp:Button ID="btnsignin" runat="server" Text="Sign IN" Width="103px" OnClick="Button1_Click" />
-                &nbsp;</td>
-            <td>
-                <asp:HyperLink ID="HyperLink1" runat="server">Forgot Password.....?</asp:HyperLink>
+            <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                &nbsp;<asp:Button ID="btnsignin" runat="server" Text="Sign IN" Width="103px" OnClick="Button1_Click" />
+                </td>
+            <td class="auto-style7">
+                <a href="#">Forgot password...?</a>
             </td>
-            <td>&nbsp;</td>
+            <td class="auto-style7"></td>
         </tr>
         <tr>
             <td class="auto-style3">&nbsp;</td>

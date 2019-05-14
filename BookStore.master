@@ -6,7 +6,8 @@
 <head runat="server">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -79,6 +80,32 @@
   color: black;
 }
 
+        .auto-style1 {
+            float: left;
+            width: 100%;
+            border: 3px solid #695878;
+            padding: 5px;
+            height: 20px;
+            border-radius: 5px;
+            outline: none;
+            color: #9DBFAF;
+            margin-left: 0px;
+        }
+
+        .auto-style3 {
+            text-align: center;
+        }
+
+        .auto-style4 {
+            width: 171%;
+            position: relative;
+            left: -174px;
+            top: 0px;
+            height: 12px;
+        }
+       
+        #ImageButton1{margin: -40px 5px -9px 288px;
+    padding: 0 0 27px 3px;}
     </style>
 </head>
 <body style="margin:0px 0px 0px 0px">
@@ -86,56 +113,70 @@
         <div class="row">
             <div class="column" style="background-color:lightgrey;margin: 0 -8px 0px -7px;height: 24px;    padding: 8px 6px 5px 313px;">
               <a  href="SignUp.aspx" style="text-decoration:none">Sign Up<i class="fa fa-user-plus"></i></a>
-               <a href="Sign-IN.aspx" style="text-decoration:none;margin: 0 0 0 27px;">Sign In<i class="fa fa-sign-in" "></i></a>
+               <a href="Login.aspx" style="text-decoration:none;margin: 0 0 0 27px;">Sign In<i class="fa fa-sign-in" "></i></a>
                 <a href="#" style="text-decoration:none;margin: 0 0 0 27px;">Customer Care<i class="fa fa-phone"></i>+91 9388510504</a>
-                 <a href="#" style="text-decoration:none;margin: 0 0 0 27px;">Shopping Cart<i class="fa fa-shopping-cart"></i></a>
+                 <a href="View_ShoppingCart.aspx" style="text-decoration:none;margin: 0 0 0 27px;">Shopping Cart<i class="fa fa-shopping-cart"></i></a>
                     <a href="#" style="text-decoration:none;margin: 0 0 0 27px;">Wish List<i class="fa fa-heart"></i></a>
             </div>
 
         </div>
         <div class="row">
             <div class="column">
-                <img src="Images/4f8f4849d7ca6c6d81964c3c61f9d085.gif" style="width:110px;height:110px;margin: 0 0 -39px 0px;" />
+                <img src="images/4f8f4849d7ca6c6d81964c3c61f9d085.gif" style="width:110px;height:110px;margin: 0 0 -39px 0px;" />
                 <a id="name">ONLINE BOOK SELLING</a>
                 <div class="wrap">
-                     <div class="search">
-                      <input type="text" class="searchTerm" placeholder="What are you looking for?">
-                          <button type="submit" class="searchButton">
-                              <i class="fa fa-search"></i>
-                          </button>
+                     <div class="auto-style4">
+                         <asp:TextBox ID="txtsearch" runat="server" placeholder="What are you looking for?" class="auto-style1"></asp:TextBox>
+                     
+                              
+                        <asp:ImageButton ID="ImageButton1" runat="server" class="searchButton" CssClass="auto-style5" Height="27px" ImageUrl="~/Images/search_icon.png" OnClick="ImageButton1_Click1" Width="30px" />
                      </div>
+                    
+               
+                         
+                              
+                        
+                   
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                
-                <asp:Label ID="lblprint" runat="server" ForeColor="#9966FF" Font-Bold="True" Font-Italic="True" Font-Size="Larger" ></asp:Label>
-               
-            </div>
+                </div>
 
         </div>
         <div class="row">
             <div class="column">
         <div class="topnav">
   <a href="Home.aspx"><i class="fa fa-home" style="color:white;font-size: 31px;"></i></a>
-            <asp:DropDownList ID="ddlcategory" runat="server" Height="38px" style="margin-left: 186px; margin: 12px 0px 0px 32px;" Width="141px">
-                <asp:ListItem>Category</asp:ListItem>
+            <asp:DropDownList ID="ddlcategory" runat="server" Height="38px" style="margin-left: 186px; margin: 12px 0px 0px 32px;" Width="141px" OnSelectedIndexChanged="ddlcategory_SelectedIndexChanged" AutoPostBack="True">
             </asp:DropDownList>
-  <a  href="#" >Best Seller</a>
-    <a href="#">Browse Book</a>
-            <a  href="#" >New Book</a>
-            <a  href="#" >Shopping Cart<i class="fa fa-shopping-cart"></i></a>
-            <a href="#">Buy Book<i class="fa fa-rupee"></i></a>
-             <a href="#">Request Book</a>
+  <a  href="Best-selling-book.aspx" >Best Seller</a>
+    
+
+            <a  href="NewBook.aspx" >New Book</a>
+            <a  href="Shopping-Cart.aspx" >Shopping Cart<i class="fa fa-shopping-cart"></i></a>
+            <a href="Delivery.aspx">Buy Book<i class="fa fa-rupee"></i></a>
+             <a href="Request-Book.aspx">Request Book</a>
             <a href="BookData.aspx">Sell Book</a>
-            <a href="#">My Account</a>
+            <a href="MyAccount.aspx">My Account</a>
+             <a href="Feedback.aspx">Feedback<i class="material-icons" style="color:white"></i></a>
             <a href="HomePage.aspx" style="float:right;font-size: 34px;" title="Sign Out"><i class="fa fa-sign-out"></i></a>
             
            
             
+            
+            
+           
+            
 </div>
+                
                 </div></div>
-    <div>
+        
+    <div class="auto-style3">
+
+        
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
+            
         </asp:ContentPlaceHolder>
     </div>
     </form>

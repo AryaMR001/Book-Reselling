@@ -31,7 +31,7 @@ public partial class NewBook : System.Web.UI.Page
         datetime = DateTime.Now.ToLongDateString();
         if (!IsPostBack)
         {
-            DataList1.DataSource = cn.fill("select Bok_Name,Book_ID,Book_Image,Price from Book_Data");
+            DataList1.DataSource = cn.fill("select Bok_Name,Book_ID,Book_Image,Price from Book_Data order by Book_ID desc");
             DataList1.DataBind();
            
 

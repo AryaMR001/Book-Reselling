@@ -35,6 +35,11 @@ public partial class Delivery : System.Web.UI.Page
 
     protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
     {
-        Response.Redirect("Payment-method.aspx");
+        Response.Redirect("shipping-add.aspx");
+    }
+
+    protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("Home.aspx");
     }
 }

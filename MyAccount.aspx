@@ -79,16 +79,20 @@
         <tr><td id="td"><a href="Purchased-Book.aspx" target="frame"><i class='fas fa-book-open'>  My Book Shelf</i></a></td></tr>
         <tr><td id="td"><a href="Book_request.aspx" target="frame" > <i class='fas fa-user-plus'> Request To Seller</i></a></td></tr>
         <tr style="border-color:darkgrey"><td id="main0"><i class='fas fa-rupee-sign'>    AS SELLER</i></td></tr>
-        <tr><td id="td"><a href="#"><i class='fas fa-battery-three-quarters'> Sales status </i></a></td></tr>
+        <tr><td id="td"><a href="Sales-Status.aspx" target="frame"><i class='fas fa-battery-three-quarters'> Sales status </i></a></td></tr>
     
         <tr><td id="td"><a href="BookAccount.aspx" target="frame" ><i class="fa fa-book" >  My Book Account</i></a></td></tr>
-            <tr><td id="td" class="auto-style10"><a href="ViewRequest.aspx" target="frame" ><i class='fas fa-user-tag'>Request From Buyer</i></a></td></tr>
-            <asp:panel runat="server" ID="pnladmin" Visible="False">
+            <tr><td id="td" class="auto-style10"><a href="#" target="frame"style="color:red" ><i class='fas fa-user-tag'>Request From Buyer</i></a></td></tr>
+             <tr><td id="td" class="auto-style10"><a href="unread-request.aspx" target="frame" ><i class='fa fa-bell'>Read</i></a></td></tr>
+                <tr><td id="td" class="auto-style10"><a href="ViewRequest.aspx" target="frame" ><i class='fa fa-bell'>New</i></a></td></tr>
+
+            <tr><td id="td"><a href="DeliveryStatus.aspx"  target="frame"><i class='fas fa-battery-three-quarters'> Set status </i></a></td></tr> 
+           <asp:panel runat="server" ID="pnladmin" Visible="False">
                  <tr style="border-color:darkgrey"><td id="main0"><i class='fas fa-rupee-sign'>    AS ADMIN</i></td></tr>
         
     
         <tr><td id="td"><a href="Feedback-view.aspx" target="frame" ><i class="far fa-eye" > View Feedback</i></a></td></tr>
-                 <tr><td id="td"><a href="#"><i class='far fa-eye'> View All Order </i></a></td></tr>
+                 <tr><td id="td"><a href="Admin-vieworder.aspx" target="frame"><i class='far fa-eye'> View All Order </i></a></td></tr>
             </asp:panel>
     </table>
    

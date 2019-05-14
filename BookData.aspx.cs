@@ -8,14 +8,11 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 using System.IO;
-
-
-
 public partial class BookData : System.Web.UI.Page
 {
     Connect cn = new Connect();
     public string filename, src, src1, ext, ID;
-    int id, count;
+    int id, count, bookcount;
     protected void Page_Load(object sender, EventArgs e)
     {
         id = Convert.ToInt32(Session["Reg_ID"]);
@@ -51,11 +48,20 @@ public partial class BookData : System.Web.UI.Page
     protected void txtbook_Click(object sender, EventArgs e)
     {
         cn.dml("insert into Book_Data(Reg_ID,Bok_Name,Author_Name,Edition,Category,Publication,Price,Quantity,Condition,Page_NO,Book_Image)values('" + Session["Reg_ID"].ToString() + "','" + txtBookname.Text.ToString() + "','" + txtOtherauthor.Text.ToString() + "','" + txtEdition.Text.ToString() + "','" +ddlcategory.SelectedValue.ToString() + "','" + txtOtherpublication.Text.ToString() + "','" + txtPrice.Text.ToString() + "','" + txtQnty.Text.ToString() + "','" + ddlCondition.SelectedValue.ToString() + "','" + txtPages.Text.ToString() + "','" + Session["photo"].ToString() + "')");
+        
         Response.Write("<script>alert('Sucessfully Completed');window.location='Home.aspx';</script>");
     }
 
     protected void btnUpload_Click(object sender, EventArgs e)
     {
+        cn.dr = cn.read("select count(*) from Book_Data group by Bok_Name ");
+        if (cn.dr.Read())
+        {
+            bookcount = Convert.ToInt32((cn.dr.GetValue(0).ToString()));
+           
+        }
+        cn.dr.Close();
+        Session["BookCount"] = bookcount + 1;
         id_gen();
         filename = Path.GetFileName(FileUpload.PostedFile.FileName);
         ext = Path.GetExtension(filename);

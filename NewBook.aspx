@@ -5,12 +5,22 @@
         .auto-style1 {
             width: 100%;
         }
-        table{border:2px solid black;}
+        table{border:2px solid black;
+                 
+
+        }
         .txtBoxBg {
             background-image: url("100.jpg");
             background-repeat: no-repeat;
             background-position: left center;
         }
+        #txtcount{text-align:center;}
+        #ContentPlaceHolder1_DataList1{
+             margin: 0 0 0 20px;
+        }
+    .auto-style5 {
+        margin-left: 45px;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -19,13 +29,14 @@
                                     <tr>
                                         <td>OUR LASTEST BOOKS</td>
                                         <td>
-                                            <asp:TextBox ID="txtcount" runat="server" CssClass="txtBoxBg" AutoPostBack="True" style="background-image:url(100.JPG)"></asp:TextBox>
+                                            <asp:TextBox ID="txtcount" runat="server" CssClass="txtBoxBg" AutoPostBack="True" placeholder="Your Shopping Cart Items" ReadOnly="true" Font-Bold="True" Font-Italic="True"></asp:TextBox>
+                                            <asp:TextBox ID="txtprice" runat="server" CssClass="auto-style5" OnTextChanged="txtprice_TextChanged"  placeholder="Total Price"></asp:TextBox>
                                             </td>
                                     </tr></table>
-   
+    <asp:Label ID="lblprint" runat="server" Text="Label" Font-Size="X-Large" Font-Bold="True" Visible="False" ForeColor="#CC00FF"></asp:Label>
                 <asp:DataList ID="DataList1" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="5" GridLines="Horizontal" RepeatDirection="Horizontal" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" RepeatColumns = "6" Height="394px" OnItemCommand="AddCart">
                     <ItemTemplate>
-                        <table>
+                        <table >
                                    
                                      <tr>
                                         <td style="text-align:center"><%#Eval("Bok_Name") %></td>

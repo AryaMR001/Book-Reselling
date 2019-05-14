@@ -19,8 +19,7 @@ public partial class Change_password : System.Web.UI.Page
         if(cn.dr.Read())
         {
             pass = cn.dr.GetValue(0).ToString();
-            lblprint.Visible = true;
-            lblprint.Text = pass;
+           
         }
         cn.dr.Close();
        

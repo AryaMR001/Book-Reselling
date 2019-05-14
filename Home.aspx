@@ -21,6 +21,9 @@
                                             <asp:TextBox ID="txtprice" runat="server" CssClass="auto-style5" OnTextChanged="txtprice_TextChanged"  placeholder="Total Price"></asp:TextBox>
                                             </td>
                                     </tr></table>
+    <asp:Label ID="lbldate" runat="server" Text="Label" Visible="False"></asp:Label>
+    <asp:label runat="server" text="Label" ID="lblprint" Font-Bold="True" Font-Italic="True" Font-Size="X-Large" ForeColor="#9933FF" Visible="False"></asp:label>
+
     <asp:DataList ID="DataList1" runat="server" RepeatColumns = "6" RepeatDirection="Horizontal" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" OnItemCommand="AddCart" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
         <ItemTemplate>
             <table>
@@ -36,9 +39,7 @@
                        <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("Book_Image") %>' Height="200px" Width="200px"/>
                     </td>
                 </tr>
-                <tr>
-                <td >Available Editions:<%#Eval("Quantity")%></td><br />
-                </tr>
+                
                 <tr>
                     <td style="text-align:center"><asp:ImageButton ID="ImageButton1" runat="server" ImageAlign="Middle" ImageUrl="~/Images/93954_thumb.png" Height="20px" Width="20px" />
                          <%#Eval("Price") %>

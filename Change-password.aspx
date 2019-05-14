@@ -88,7 +88,7 @@
             </tr>
             <tr>
                 <td class="auto-style6" colspan="2">
-                    <asp:Label ID="lblprint" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="#9966FF" Text="Label" Visible="False"></asp:Label>
+                    <asp:Label ID="lblprint" runat="server" Font-Bold="True" Font-Italic="True" ForeColor="#9900FF" Text="Label" Visible="False"></asp:Label>
                 </td>
             </tr>
         </table>

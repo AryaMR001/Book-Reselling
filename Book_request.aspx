@@ -33,6 +33,9 @@
     <form id="form1" runat="server">
         <table class="auto-style1">
             <tr>
+                 <td class="auto-style4" colspan="2" style="background-color:black;color:white"> YOU CAN SEND YOUR BOOK REQUEST HERE</td>            
+            </tr>
+            <tr>
                 <td class="auto-style2">
                     <asp:Label ID="Label1" runat="server" Text="Book Name"></asp:Label>
                 </td>

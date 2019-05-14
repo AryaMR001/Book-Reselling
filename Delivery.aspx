@@ -13,6 +13,9 @@
         .auto-style5 {
             text-align: right;
         }
+        .auto-style6 {
+            height: 20px;
+        }
     </style>
     <table >
         <tr><td>
@@ -36,13 +39,15 @@
                 <table style="background-color:gainsboro;">
                     <tr>
                         <td>
+                            
                             <asp:Label ID="Label1" runat="server" Text="DELIVERY ADDRESS:" Font-Bold="True"></asp:Label>
+                           
 
                         </td>
                         
                     </tr>
                     <tr>
-                        <td>
+                        <td class="auto-style6">
                             <asp:Label ID="lbladdress" runat="server"></asp:Label>
                             
                         </td>
@@ -71,11 +76,27 @@
                             
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <br />
+                            
+                        </td>
+
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
                 </table>
             </td>
         </tr>
         <tr>
+            <td>
+                <asp:ImageButton ID="ImageButton3" runat="server" Height="53px" ImageUrl="~/images/back.png" Width="156px" OnClick="ImageButton3_Click" />
+            </td>
             <td class="auto-style5">
+                
                 <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/images/continue.jpg" OnClick="ImageButton2_Click" Width="157px" />
             </td>
         </tr>
