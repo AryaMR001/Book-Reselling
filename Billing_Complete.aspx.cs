@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 public partial class Billing_Complete : System.Web.UI.Page
 {
     Connect cn = new Connect();
-    double balance, tot, new_balance, count;
+    double balance, tot, new_balance, count, admin;
     
     protected void Page_Load(object sender, EventArgs e)
 
@@ -39,7 +39,12 @@ public partial class Billing_Complete : System.Web.UI.Page
         lblshipping.Text = Session["Ship_Cost"].ToString();
         lbltot.Text = Session["Grand_tot"].ToString();
         tot = Convert.ToDouble(lbltot.Text);
-
+        cn.dr = cn.read("select Balance from Bank where cvv=928");
+        if(cn.dr.Read())
+        {
+            admin = Convert.ToDouble(cn.dr.GetValue(0).ToString());
+        }
+        cn.dr.Close();
     }
 
     protected void btnpay_Click(object sender, EventArgs e)
@@ -86,14 +91,19 @@ public partial class Billing_Complete : System.Web.UI.Page
         }
         if (balance >= tot)
         {
-           
-            //cn.dml("update Bank set Balance='" + new_balance + "' where Account_no=9605764809000011");//check
+            admin = admin + tot;
+              cn.dml("update Bank set Balance='" + admin+ "' where cvv=928");//check
               cn.dml("update Bank set Balance='" + new_balance + "' where Account_no='" + txtcardnum.Text + "'");
               cn.dml("update order_details set Status='Payment Completed' where Reg_ID='"+ Session["Reg_ID"].ToString() + "'");//set status in order_details
               cn.dml("delete from Add_Cart where Reg_ID='" + Session["Reg_ID"].ToString() + "'");//delete cart
+              Response.Redirect("Bill-export.aspx");
+
         }
-       
-      
+
+        else
+        {
+            cn.dml("update order_details set Status='Wait For Payment' where Reg_ID='" + Session["Reg_ID"].ToString() + "'");
+        }
     }
     
    
